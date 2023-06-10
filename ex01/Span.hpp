@@ -6,7 +6,7 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:09:00 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/06/09 16:18:25 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:01:35 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <exception>
 # include <algorithm>
+# include <cstdlib>
 
 class	Span
 {
@@ -30,11 +31,17 @@ class	Span
 		
 		~Span(void);
 
+		//Getter functions ---------------------------------
+		int		getNumber(void) const;
+		int		getSize(void) const;
+		
 		//Members functions --------------------------------
 		void	addNumber(int nbr_to_add);
 		void	addManyNumbers(int ammount);
 		int		shortestSpan(void);
 		int		longestSpan(void);
+
+		void	printVector(void) const;
 
 		//Exceptions functions -----------------------------
 		class	VectorIsFull: public std::exception

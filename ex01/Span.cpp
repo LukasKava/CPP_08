@@ -6,7 +6,7 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:08:57 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/06/09 16:35:31 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:07:35 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Span::Span(void): _N(0), _storage(0)
 {
-	std::cout << "Default constructor: empty vector" << std::endl;
+	//std::cout << "Default constructor: empty vector" << std::endl;
 }
 
 Span::Span(unsigned int n): _N(n), _storage(0)
 {
-	std::cout << "Constructor: _N: " << n << std::endl;
+	//std::cout << "Constructor: _N: " << n << std::endl;
 }
 
 Span::Span(const Span& other)
@@ -38,7 +38,17 @@ Span&	Span::operator=(const Span& other)
 
 Span::~Span(void)
 {
-	std::cout << "Destructor has been called!" << std::endl;
+	//std::cout << "Destructor has been called!" << std::endl;
+}
+
+int	Span::getNumber(void) const
+{
+	return (_N);
+}
+
+int	Span::getSize(void) const
+{
+	return (_storage.size());
 }
 
 void	Span::addNumber(int	nbr_to_add)
@@ -50,12 +60,13 @@ void	Span::addNumber(int	nbr_to_add)
 
 void	Span::addManyNumbers(int ammount)
 {
-	if (ammount + _storage.size() >= _N)
+	if (ammount + _storage.size() > _N)
 		throw VectorIsFull();
 	
+	srand(time(NULL));
 	std::vector<int>			tmp(ammount);
 	for (std::vector<int>::iterator	it = tmp.begin(); it != tmp.end(); it++)
-		*it = *it;
+		*it = rand() % 10;
 	for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); it++)
 		_storage.push_back(*it);
 }
@@ -84,6 +95,14 @@ int	Span::longestSpan(void)
 	int	min = *std::min_element(_storage.begin(), _storage.end());
 	int max = *std::max_element(_storage.begin(), _storage.end());
 	return (max - min);
+}
+
+void	Span::printVector(void) const
+{
+	std::vector<int>::const_iterator	it;
+	for (it = _storage.begin(); it != _storage.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
 }
 
 // Exceptions --------------------------------------
