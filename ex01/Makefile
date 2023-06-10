@@ -6,7 +6,7 @@
 #    By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 12:08:37 by lkavalia          #+#    #+#              #
-#    Updated: 2023/06/09 12:08:47 by lkavalia         ###   ########.fr        #
+#    Updated: 2023/06/09 16:31:07 by lkavalia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC = c++
 
 CPP_FLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 
-SRC = main.cpp
+SRC = main.cpp \
+		Span.cpp
 
 all: $(NAME)
 
