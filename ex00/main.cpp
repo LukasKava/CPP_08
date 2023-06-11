@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:27:32 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/06/08 21:29:32 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/06/11 16:57:11 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void)
 		}
 		
 		std::vector<int>::iterator check;
-		try {check == easyfind(vec, -1);}
+		try {check = easyfind(vec, -1);}
 		catch (ElementIsNotFound& e)
 		{
 			std::cout << RED << e.what() << BLANK << std::endl;
@@ -55,7 +55,7 @@ int main(void)
 			it++;
 		}
 		std::deque<int>::iterator check;
-		try {check == easyfind(d, -1);}
+		try {check = easyfind(d, -1);}
 		catch (ElementIsNotFound& e)
 		{
 			std::cout << RED << e.what() << BLANK << std::endl;
@@ -79,7 +79,7 @@ int main(void)
 			it++;
 		}
 		std::list<int>::iterator check;
-		try {check == easyfind(l, -1);}
+		try {check = easyfind(l, -1);}
 		catch (ElementIsNotFound& e)
 		{
 			std::cout << RED << e.what() << BLANK << std::endl;
